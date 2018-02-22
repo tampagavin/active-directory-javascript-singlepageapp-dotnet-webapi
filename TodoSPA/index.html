@@ -5,8 +5,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/App/Content/app.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
+
+
 </head>
-<body role="document">
+<body role="document"> 
 
 
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -62,6 +69,25 @@
     <script src="App/Scripts/Ctrls/homeCtrl.js"></script>
     <script src="App/Scripts/Ctrls/todoListCtrl.js"></script>
     <script src="App/Scripts/Ctrls/userDataCtrl.js"></script>
+
+    <script>
+
+       if ('serviceWorker' in navigator) {
+
+           navigator.serviceWorker.register('/sw.js')
+               .then(function (registration) {
+
+                   console.log('Registration successful, scope is:', registration.scope);
+
+               }).catch(function (error) {
+
+                   console.log('Service worker registration failed, error:', error);
+
+               });
+
+       }
+
+    </script>
 
 </body>
 </html>
